@@ -1,0 +1,11 @@
+apiVersion: v1 # Versão da api
+kind: Service ## tipo de serviço
+metadata: ## dados que caracterizam o serviço
+  name: simple-api-go
+spec: ## especificação do serviço
+  type: ClusterIP ## Tipo de serviço [ClusterIp,NodePort, LoadBalancer]
+  selector: ## Pega o deployment que possue essa label
+    app: simple-api-go
+  ports: 
+  - port: 8080 ## Porta que vai ser exposta 
+    targetPort: 8080 ## porta do container
